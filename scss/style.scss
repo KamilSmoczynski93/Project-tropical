@@ -83,17 +83,17 @@ body {
 	width: 100%;
 	background-image: $blue-gradient-solid;
 	z-index: 100;
-    transform: translateX(100%);
-    transition: transform 0.5s cubic-bezier(.65, .05, .36, 1);
+	transform: translateX(100%);
+	transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
 
-    &--active {
-        transform: translateX(0);
-    }
+	&--active {
+		transform: translateX(0);
+	}
 
 	&__item {
 		position: relative;
 		display: block;
-        margin: 0.5em 0;
+		margin: 0.5em 0;
 		padding: 0.5em 2em;
 		font-size: 2.8rem;
 		color: $pure-white;
@@ -105,30 +105,28 @@ body {
 			left: 0;
 			width: 3px;
 			height: 100%;
-            transform: scaleY(0);
-            background-color: $pure-white;
-            transition: transform 0.3s;
-            content: '';
+			transform: scaleY(0);
+			background-color: $pure-white;
+			transition: transform 0.3s;
+			content: '';
 		}
 		&:hover::before {
-            transform: scaleY(1);
-           
+			transform: scaleY(1);
 		}
 	}
 }
 
-
 @keyframes navItemsAnimation {
-    from {
-        transform: translateX(200%);
-    }
-    to {
-        transform: translateX(0);
-    }
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0);
+	}
 }
 
 .nav-items-animation {
-    animation: navItemsAnimation 1s both;
+	animation: navItemsAnimation 1s both;
 }
 
 // HEADER
@@ -174,11 +172,63 @@ body {
 	}
 }
 
+// MAIN
+// DREAMS SECTION
 
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__title {
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4em;
+	}
+}
 
 // =============================
 // MEDIA
 // =============================
+
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+
+                &--right {
+                    text-align: right;
+                }
+			}
+
+            &-img {
+                width: 40%;
+
+                &--right {
+                    order: 1;
+                }
+            }
+		}
+
+        &__img {
+            margin-bottom: 0;
+            max-height: 300px;
+        }
+	}
+}
 
 @media (min-width: 768px) {
 	.white-block {
@@ -199,6 +249,12 @@ body {
 			font-size: 1.6rem;
 		}
 	}
+
+    .dreams {
+        &__text {
+            font-size: 1.8rem;
+        }
+    }
 }
 
 @media (min-width: 992px) {
@@ -214,4 +270,32 @@ body {
 			font-size: 10rem;
 		}
 	}
+
+    .nav {
+        &__item {
+            font-size: 4.8rem;
+        }
+    }
+
+    .dreams {
+
+        &__box {
+            margin: 5em 0;
+
+            &-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                margin-bottom: 2.5em;
+            }
+        }
+
+        &__title {
+            font-size: 3.6rem;
+        }
+
+        &__text {
+            font-size: 2.2rem;
+        }
+    }
 }
