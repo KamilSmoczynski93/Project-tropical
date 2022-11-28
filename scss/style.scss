@@ -199,83 +199,195 @@ body {
 // HERO-IMG
 
 .hero-img {
-    position: relative;
-    padding: 10em 2em;
-    @include heroImages ('../img/tahiti-640.jpg');
-    color: $pure-white;
-    text-align: center;
-    overflow: hidden;
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../img/tahiti-640.jpg');
+	color: $pure-white;
+	text-align: center;
+	overflow: hidden;
 
-    &__title {
-        font-family: 'Dancing Script', cursive;
+	&__title {
+		font-family: 'Dancing Script', cursive;
 		font-size: 4.8rem;
-        margin-bottom:.5em;
-    }
+		margin-bottom: 0.5em;
+	}
 
-    &__text {
-        padding: 1em 0;
-    }
-
+	&__text {
+		padding: 1em 0;
+	}
 }
 
 // ISLANDS
 
 .islands {
-    &__card {
-        position: relative;
-        margin: 1em 0;
-        height: 450px;
-        color: $pure-white;
-        text-align: center;
-        perspective: 1000px;
+	&__card {
+		position: relative;
+		margin: 1em 0;
+		height: 450px;
+		color: $pure-white;
+		text-align: center;
+		perspective: 1000px;
 
-        &:hover {
-            .islands__card-img {
-                transform: rotateY(-180deg);
-                opacity: 0;
-            }
-            .islands__card-info {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
-        }
+		&:hover {
+			.islands__card-img {
+				transform: rotateY(-180deg);
+				opacity: 0;
+			}
+			.islands__card-info {
+				transform: rotateY(0deg);
+				opacity: 1;
+			}
+		}
 
-        &-img {
-            padding: 2em;
-            height: 100%;
-            border-radius: 8px;
-            background-size: cover;
-            transition: transform 1s, opacity 1s;
+		&-img {
+			padding: 2em;
+			height: 100%;
+			border-radius: 8px;
+			background-size: cover;
+			transition: transform 1s, opacity 1s;
 
-            &--first {
-                background-image: $light-blue-gradient, url('/img/water-640.jpg');
-            }
-            &--second{
-                background-image: $blue-gradient, url('/img/boat-640.jpg');
-            }
-            &--third {
-                background-image: $purple-gradient, url('/img/hawaii-640.jpg');
-            }
+			&--first {
+				background-image: $light-blue-gradient, url('/img/water-640.jpg');
+			}
+			&--second {
+				background-image: $blue-gradient, url('/img/boat-640.jpg');
+			}
+			&--third {
+				background-image: $purple-gradient, url('/img/hawaii-640.jpg');
+			}
 
-            &-title {
-                font-family: 'Dancing Script', cursive;
-                font-size: 2.8rem;
-            }
+			&-title {
+				font-family: 'Dancing Script', cursive;
+				font-size: 2.8rem;
+			}
 
-            &-info {
-                position: absolute;
-                bottom: 30px;right: 30px;font-size: 1.8rem;
+			&-info {
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				font-size: 1.8rem;
 
-                i {
-                    margin-right: 0.3em;
-                }
-            }
-        }
+				i {
+					margin-right: 0.3em;
+				}
+			}
+		}
+		&-info {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			border-radius: 8px;
+			background-image: $light-blue-gradient-solid;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: transform 1s, opacity 1s;
 
-    }
+			&-title {
+				@include islandCardStyles;
+				top: 1.2em;
+				font-family: 'Dancing Script', cursive;
+				font-size: 2.8rem;
+			}
+
+			&-list {
+				margin: 0 auto;
+				width: 70%;
+				list-style: none;
+
+				&-item {
+					padding: 1em;
+					font-size: 1.4rem;
+					border-bottom: 1px solid $light-white;
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+
+			&-btn {
+				@include islandCardStyles;
+				bottom: 2em;
+				padding: 1em;
+				width: 80%;
+				border: none;
+				border-radius: 8px;
+				background-color: $green-color;
+				cursor: pointer;
+
+				&::before {
+					background-color: $green-color-hover;
+				}
+			}
+		}
+	}
 }
 
+// OFFERS
 
+.offers {
+	position: relative;
+	@include heroImages('/img/maldives-640.jpg');
+	overflow: hidden;
+
+	.section-heading {
+		color: $pure-white;
+	}
+
+	&__option {
+		margin: 1em 0;
+		box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.18);
+		background-color: $pure-white;
+		overflow: hidden;
+
+		&-img {
+			width: 100%;
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+
+		&-info {
+			padding: 2em;
+            background-color: $pure-white;
+            z-index: 10;
+		}
+
+		&-heading {
+			margin-bottom: 0.5em;
+			font-size: 2.4rem;
+			font-weight: 300;
+		}
+
+		&-text {
+			margin-bottom: 0.5em;
+			font-size: 1.3rem;
+			color: $dark;
+		}
+
+		&-btn {
+			margin-top: 1em;
+			padding: 0.8em;
+			width: 100%;
+			color: $pure-white;
+			background-color: $main-color;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+
+			&::before {
+				background-color: $secondary-color;
+			}
+		}
+	}
+}
 
 // =============================
 // MEDIA
@@ -290,24 +402,55 @@ body {
 			&-text {
 				width: 55%;
 
-                &--right {
-                    text-align: right;
-                }
+				&--right {
+					text-align: right;
+				}
 			}
 
-            &-img {
-                width: 40%;
+			&-img {
+				width: 40%;
 
-                &--right {
-                    order: 1;
-                }
-            }
+				&--right {
+					order: 1;
+				}
+			}
 		}
 
-        &__img {
-            margin-bottom: 0;
-            max-height: 300px;
-        }
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+
+	.offers {
+		&__option {
+			display: flex;
+			margin: 2em 0;
+			width: 100%;
+
+			&-img {
+				width: 50%;
+				height: auto;
+
+				&--right {
+					order: 1;
+				}
+			}
+			&-info {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			&-heading {
+				margin-bottom: 0.5em;
+				font-size: 3.6rem;
+			}
+
+			&-btn {
+				padding: 1em;
+			}
+		}
 	}
 }
 
@@ -331,24 +474,37 @@ body {
 		}
 	}
 
-    .dreams {
-        &__text {
-            font-size: 1.8rem;
-        }
-    }
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
+		}
+	}
 
-    .hero-img {
-        padding: 30rem 2em;
+	.hero-img {
+		padding: 30rem 2em;
 
-        hr {
-            margin: 0 auto;
-            width: 70%;
-        }
+		hr {
+			margin: 0 auto;
+			width: 70%;
+		}
 
-        &__text {
-            font-size: 2.2rem;
-        }
-    }
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+
+	.islands {
+		&__cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			&__card {
+				margin: 1em;
+				width: 45%;
+			}
+		}
+	}
 }
 
 @media (min-width: 992px) {
@@ -365,45 +521,67 @@ body {
 		}
 	}
 
-    .nav {
-        &__item {
-            font-size: 4.8rem;
-        }
-    }
+	.nav {
+		&__item {
+			font-size: 4.8rem;
+		}
+	}
 
-    .dreams {
+	.dreams {
+		&__box {
+			margin: 5em 0;
 
-        &__box {
-            margin: 5em 0;
+			&-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
+			}
+		}
 
-            &-text {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                margin-bottom: 2.5em;
-            }
-        }
+		&__title {
+			font-size: 3.6rem;
+		}
 
-        &__title {
-            font-size: 3.6rem;
-        }
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
 
-        &__text {
-            font-size: 2.2rem;
-        }
-    }
+	.hero-img {
+		padding: 40rem 2em;
+		background-image: $blue-gradient url('/img/tahiti-1920.jpg');
 
-    .hero-img {
-        padding: 40rem 2em;
-        background-image: $blue-gradient url('/img/tahiti-1920.jpg');
+		&__title {
+			font-size: 7.2rem;
+		}
 
-        &__title {
-            font-size: 7.2rem;
-        }
+		hr {
+			width: 60%;
+			max-width: 900px;
+		}
+	}
 
-        hr {
-            width: 60%;
-            max-width: 900px;
-        }
-    }
+	.offers {
+		background-image: $blue-gradient, url('/img/maldives-920.jpg');
+
+		&__option {
+			&-img {
+				object-fit: cover;
+				height: 300px;
+			}
+
+			&-text {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.islands {
+		&__card {
+			width: 30%;
+		}
+	}
 }
