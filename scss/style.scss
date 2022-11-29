@@ -21,6 +21,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+
+
 // NAV
 
 .burger-btn {
@@ -129,6 +131,12 @@ body {
 	animation: navItemsAnimation 1s both;
 }
 
+.black-bars-color, 
+.black-bars-color::after, 
+.black-bars-color::before {
+background-color: $dark;
+}
+
 // HEADER
 
 .header {
@@ -222,8 +230,9 @@ body {
 .islands {
 	&__card {
 		position: relative;
-		margin: 1em 0;
+		margin: 1em 1em;
 		height: 450px;
+        min-width: 30%;
 		color: $pure-white;
 		text-align: center;
 		perspective: 1000px;
@@ -281,6 +290,7 @@ body {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+            flex-wrap: wrap;
 			border-radius: 8px;
 			background-image: $light-blue-gradient-solid;
 			opacity: 0;
@@ -489,9 +499,76 @@ body {
     }
 }
 
+// FOOTER
+
+
+.footer {
+    color: $pure-white;
+    background-color: $dark;
+
+    .wrapper {
+        padding: 6em 2em 2em;
+    }
+
+    &__box {
+        font-size: 1.4rem;
+    }
+
+    &__box-desktop {
+        display: none;
+    }
+
+    &__box-title {
+        margin-bottom: 1em;
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+
+    &__box-social {
+        margin: 2em 0 1em;
+    }
+
+    &__box-link {
+        padding: 0 .3em;
+        font-size: 3.6rem;
+        color: $pure-white;
+        text-decoration: none;
+        transition: color .3s;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:hover {
+            color: $light-white;
+        }
+    }
+
+    &__bottom-text {
+        padding: 2em;
+        text-align: center;
+    }
+
+}
+
 // =============================
 // MEDIA
 // =============================
+
+@media (min-width: 375px) {
+    .islands {
+		&__cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			&__card {
+				margin: .5em;
+				width: 50%;
+			}
+		}
+	}
+}
 
 @media (min-width: 576px) {
 	.dreams {
@@ -552,6 +629,20 @@ body {
 			}
 		}
 	}
+    .islands {
+		&__cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			&__card {
+                margin: 1em;
+                min-width: 50%;
+			}
+		}
+	}
+
+   
 }
 
 @media (min-width: 768px) {
@@ -605,6 +696,41 @@ body {
 			}
 		}
 	}
+
+    .footer {
+        &__boxes {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__box-desktop {
+            display: block;
+        }
+
+        &__box {
+            margin: 0 2em;
+            width: 25%;
+
+            &:first-child {
+                width: 50%;
+            }
+        }
+        &__box-title {
+            font-size: 2.4rem;
+        }
+
+        &__box-list {
+            list-style: none;
+        }
+        &__box-list-item {
+            margin-bottom: 1em;
+
+            a {
+                color: $light-white;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
