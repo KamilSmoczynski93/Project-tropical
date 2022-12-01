@@ -8,8 +8,10 @@ const footerYear = document.querySelector('.footer__year')
 const handleNav = () => {
 	nav.classList.toggle('nav--active')
 
+    // After adding the active class, the color of the burger icon is changed from black to white
     navBtnBars.classList.remove('black-bars-color');
 
+    // disabling the active class when we click on one of the items
 	allNavItems.forEach(item => {
 		item.addEventListener('click', () => {
 			nav.classList.remove('nav--active')
@@ -19,6 +21,7 @@ const handleNav = () => {
     handleNavItemsAnimation();
 }
 
+// adding styles dynamically delay time
 const handleNavItemsAnimation = () => {
     let delayTime = 0;
 
@@ -29,6 +32,7 @@ const handleNavItemsAnimation = () => {
     })
 }
 
+// burger icon changes color when it rides over a white field
 const handleObserver = () => {
     const currentSection = window.scrollY;
     allSections.forEach(section => {
@@ -40,6 +44,8 @@ const handleObserver = () => {
     })
 }
 
+
+// change of year in footer
 const handleCurrentYear = () => {
     const year = new Date().getFullYear();
 footerYear.innerText = year;
